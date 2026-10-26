@@ -1,0 +1,15 @@
+/* lightbox (shared behaviour, themed per site via custom properties) */
+.lb { position: fixed; inset: 0; z-index: 90; background: var(--lb-bg, rgba(12,12,12,.94)); display: grid; place-items: center; padding: 64px 0 24px; }
+.lb-fig { animation: lbIn .3s ease; }
+.lb-fig { margin: 0; width: 100%; max-width: 1400px; display: grid; gap: .8rem; }
+.lb-fig img { width: 100%; max-height: calc(100dvh - 170px); object-fit: contain; }
+.lb-fig figcaption { display: flex; justify-content: space-between; gap: 1rem; padding: 0 1.2rem; color: rgba(255,255,255,.86); font-size: .88rem; }
+.lb-count { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.lb-close, .lb-nav { position: absolute; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 999px; color: #fff; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); cursor: pointer; }
+.lb-close { top: 10px; right: 10px; }
+.lb-nav { bottom: 18px; }
+.lb-prev { left: calc(50% - 58px); } .lb-next { left: calc(50% + 10px); }
+.lb-fig figcaption { padding-bottom: 64px; }
+@media (min-width: 900px) { .lb-nav { top: 50%; bottom: auto; transform: translateY(-50%); } .lb-prev { left: 18px; } .lb-next { left: auto; right: 18px; } .lb-fig figcaption { padding-bottom: 0; } }
+@keyframes lbIn { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
